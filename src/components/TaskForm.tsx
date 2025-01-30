@@ -27,12 +27,18 @@ const TaskForm = ({ form, initialValues, onFinish }: TaskFormProps) => {
       <Form.Item
         name="title"
         label="Название задачи: "
+        rules={[
+          { required: true, message: "Пожалуйста, введите название задачи!" },
+        ]}
       >
         <Input placeholder="Напишите название задачи" />
       </Form.Item>
       <Form.Item
         name="date"
         label="Дата: "
+        rules={[
+          { required: true, message: "Пожалуйста, выберите дату!" },
+        ]}
         getValueProps={(value) => ({ value: value && dayjs(Number(value)) })}
         normalize={(value) => value && `${dayjs(value).valueOf()}`}
       >
