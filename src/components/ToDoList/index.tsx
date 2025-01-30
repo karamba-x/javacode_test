@@ -38,14 +38,16 @@ const ToDoList: React.FC<ToDoListProps> = ({ onDeleteTask, data, isLoading, upda
         renderItem={(item) => (
           <List.Item
             className={styles.list_item}
-            style={{backgroundColor: item.completed ? 'rgba(0,0,0,0.1)' : 'inherit' }}
+            style={{ backgroundColor: item.completed ? 'rgba(0,0,0,0.1)' : 'inherit' }}
             extra={
               <Space>
                 <Button
+                  disabled={item.completed}
                   icon={<EditOutlined />}
                   onClick={() => setModal({ isOpen: true, taskId: item.id })}
                 />
                 <Button
+                  disabled={item.completed}
                   icon={<DeleteOutlined />}
                   danger
                   onClick={() => onDeleteTask(item.id)}
