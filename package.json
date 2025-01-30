@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "concurrently \"npm run server\" \"vite preview\"",
     "server": "npx json-server-auth db.json -r routes.json",
     "client": "vite",
     "dev": "concurrently \"npm run server\" \"npm run client\""
